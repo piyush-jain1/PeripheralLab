@@ -1,0 +1,23 @@
+LXI SP, 27FFH
+LXI B, 1388H
+BACK
+SIM
+CALL DELAY
+MVI A, 40H
+CALL DELAY
+DCX B 
+MOV A, C
+ORA B 
+JNZ BACK 
+HLT 
+
+Delay:	MVI C, 0AH
+LOOP:   MVI D, 64H
+LOOP1:  MVI E, 0DEH
+LOOP2:  DCR E
+        JNZ LOOP2
+        DCR D
+        JNZ LOOP1
+        DCR C
+        JNZ LOOP
+        RET 
